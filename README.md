@@ -1,8 +1,8 @@
-# first_screen_challenge
-App about pets
+# Screen challenge
+Simple app about pets
 
-## contain two screens 
-* practice the issue of componentization of widgets;
+## Two screens to practice
+* componentization of widgets;
 * responsiveness;
 * lists;
 * nested scrolls.
