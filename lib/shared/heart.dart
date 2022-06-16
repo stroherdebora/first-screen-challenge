@@ -9,24 +9,25 @@ class Heart extends StatefulWidget {
   State<Heart> createState() => _HeartState();
 }
 
-bool _heartOn = false;
-
 class _HeartState extends State<Heart> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () async {
-        print(_heartOn);
-        setState(() {
-          _heartOn = !_heartOn;
-        });
-        print(_heartOn);
-      },
-      icon: Icon(
-        _heartOn ? Icons.favorite : Icons.favorite_border,
-        color: Colors.red,
-        size: 30,
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        IconButton(
+          icon: isSelected
+              ? Icon(Icons.favorite, size: 30, color: Colors.red)
+              : Icon(Icons.favorite_border, size: 30, color: Colors.grey),
+          onPressed: () {
+            setState(() {
+              isSelected = !isSelected;
+              print('isSelected: $isSelected');
+            });
+          },
+        ),
+      ],
     );
   }
 }
