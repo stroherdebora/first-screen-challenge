@@ -32,7 +32,7 @@ class _AnimalListState extends State<AnimalList> {
       ),
       Animal(
         name: 'Charlie',
-        breed: 'Boston Terrier',
+        breed: 'Pug',
         gender: 'Male',
         age: '1.5 years old',
         distance: '2.5',
@@ -44,11 +44,11 @@ class _AnimalListState extends State<AnimalList> {
         gender: 'Male',
         age: '1 years old',
         distance: '2.5',
-        image: 'dog.jpg',
+        image: 'dog3.jpg',
       ),
       Animal(
         name: 'Sparky',
-        breed: 'Golden Retriever',
+        breed: 'French Bulldog',
         gender: 'Female',
         age: '8 months old',
         distance: '2.5',
