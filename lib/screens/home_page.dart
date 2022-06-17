@@ -16,15 +16,16 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(90.0),
+        preferredSize: Size.fromHeight(90),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(12.0),
           child: AppBar(
             centerTitle: true,
             elevation: 0,
-            title: const Text('Pets', style: TextStyle(color: Colors.black)),
+            title: const Text('Cameron St., Boston',
+                style: TextStyle(color: Color.fromARGB(255, 62, 62, 62))),
             backgroundColor: Colors.white,
             iconTheme: const IconThemeData(
               color: Colors.grey,
@@ -32,7 +33,7 @@ class HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      drawer: const NavDrawer(),
+      // drawer: NavDrawer(),
       body: Container(
         padding: const EdgeInsets.only(top: 15),
         height: MediaQuery.of(context).size.height,
@@ -43,31 +44,60 @@ class HomePageState extends State<HomePage> {
             topRight: Radius.circular(20.0),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: category.length,
-                  itemBuilder: (context, index) {
-                    return ListIconWidget(category: category[index]);
-                  },
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: category.length,
+                    itemBuilder: (context, index) {
+                      return ListIconWidget(category: category[index]);
+                    },
+                  ),
                 ),
               ),
-              Expanded(
-                flex: 9,
-                child: ListView.builder(
-                  itemCount: animal.length,
-                  itemBuilder: (context, index) {
-                    return AnimalListWidget(animal: animal[index]);
-                  },
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: animal.length,
+                    itemBuilder: (context, index) {
+                      return AnimalListWidget(animal: animal[index]);
+                    },
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+            // SliverList(
+            // delegate: SliverChildBuilderDelegate(
+            // childCount: category.length,
+            // (context, index) {
+            // return Container(
+            // child: Row(
+            // children: [
+            // ListIconWidget(category: category[index]),
+            // ],
+            // ));
+            // },
+            // ),
+            // ),
+            // SliverList(
+            // delegate: SliverChildBuilderDelegate(
+            // childCount: animal.length,
+            // (context, index) {
+            // return AnimalListWidget(animal: animal[index]);
+            // },
+            // ),
+            // ),
+          ],
         ),
       ),
     );

@@ -4,16 +4,22 @@ import '../models/animal.dart';
 import '../screens/details.dart';
 import '../shared/heart.dart';
 
-class AnimalListWidget extends StatelessWidget {
+class AnimalListWidget extends StatefulWidget {
   final Animal animal;
   const AnimalListWidget({Key? key, required this.animal}) : super(key: key);
 
+  @override
+  State<AnimalListWidget> createState() => _AnimalListWidgetState();
+}
+
+class _AnimalListWidgetState extends State<AnimalListWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (() => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Details(animal: animal)),
+            MaterialPageRoute(
+                builder: (context) => Details(animal: widget.animal)),
           )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +46,7 @@ class AnimalListWidget extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(
-                            'images/${animal.image}',
+                            'images/${widget.animal.image}',
                             height: 150.0,
                             width: 150.0,
                             fit: BoxFit.fitHeight,
@@ -57,7 +63,7 @@ class AnimalListWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${animal.name}',
+                              '${widget.animal.name}',
                               style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
@@ -65,11 +71,12 @@ class AnimalListWidget extends StatelessWidget {
                             ),
                             SizedBox(height: 8),
                             Text(
-                              '${animal.breed}',
+                              '${widget.animal.breed}',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 2),
-                            Text('${animal.gender}, ${animal.age}'),
+                            Text(
+                                '${widget.animal.gender}, ${widget.animal.age}'),
                             SizedBox(height: 16),
                             Row(
                               children: [
@@ -77,9 +84,9 @@ class AnimalListWidget extends StatelessWidget {
                                   Icons.location_on,
                                   color: Colors.red,
                                   size: 24.0,
-                                  semanticLabel: '${animal.distance}',
+                                  semanticLabel: '${widget.animal.distance}',
                                 ),
-                                Text('${animal.distance} kms away'),
+                                Text('${widget.animal.distance} kms away'),
                               ],
                             ),
                           ],

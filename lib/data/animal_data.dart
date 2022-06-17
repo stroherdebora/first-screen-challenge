@@ -26,6 +26,22 @@ List<Animal> animal = [
     image: 'dog3.jpg',
   ),
   Animal(
+    name: 'Max',
+    breed: 'Siberian Husky',
+    gender: 'Male',
+    age: '1 years old',
+    distance: '2.5',
+    image: 'dog3.jpg',
+  ),
+  Animal(
+    name: 'Max',
+    breed: 'Siberian Husky',
+    gender: 'Male',
+    age: '1 years old',
+    distance: '2.5',
+    image: 'dog3.jpg',
+  ),
+  Animal(
     name: 'Sparky',
     breed: 'French Bulldog',
     gender: 'Female',
