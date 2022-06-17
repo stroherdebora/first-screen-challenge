@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
 import '../models/animal.dart';
+import '../shared/heart.dart';
 
 class Details extends StatelessWidget {
   final Animal animal;
@@ -36,14 +37,7 @@ class Details extends StatelessWidget {
               subtitle: Text(
                   '${animal.gender} night stay for only \$${animal.age}',
                   style: const TextStyle(letterSpacing: 1)),
-              trailing: IconButton(
-                icon: Icon(
-                  Icons.favorite,
-                  color: Colors.grey[400],
-                  size: 30,
-                ),
-                onPressed: () {},
-              ),
+              trailing: Heart(),
             ),
             Padding(
               padding: const EdgeInsets.all(18),

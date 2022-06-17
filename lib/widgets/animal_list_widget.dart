@@ -1,75 +1,15 @@
-import 'package:first_screen_challenge/shared/heart.dart';
 import 'package:flutter/material.dart';
 
 import '../models/animal.dart';
 import '../screens/details.dart';
+import '../shared/heart.dart';
 
-class AnimalList extends StatefulWidget {
-  const AnimalList({Key? key}) : super(key: key);
+class AnimalListWidget extends StatelessWidget {
+  final Animal animal;
+  const AnimalListWidget({Key? key, required this.animal}) : super(key: key);
 
   @override
-  State<AnimalList> createState() => _AnimalListState();
-}
-
-class _AnimalListState extends State<AnimalList> {
-  final List<Widget> _animalTiles = [];
-  final GlobalKey _listKey = GlobalKey();
-  @override
-  void initState() {
-    super.initState();
-    _addAnimal();
-  }
-
-  void _addAnimal() {
-    List<Animal> _animals = [
-      Animal(
-        name: 'Sparky',
-        breed: 'Golden Retriever',
-        gender: 'Female',
-        age: '8 months old',
-        distance: '2.5',
-        image: 'dog1.jpg',
-      ),
-      Animal(
-        name: 'Charlie',
-        breed: 'Pug',
-        gender: 'Male',
-        age: '1.5 years old',
-        distance: '2.5',
-        image: 'dog2.jpg',
-      ),
-      Animal(
-        name: 'Max',
-        breed: 'Siberian Husky',
-        gender: 'Male',
-        age: '1 years old',
-        distance: '2.5',
-        image: 'dog3.jpg',
-      ),
-      Animal(
-        name: 'Sparky',
-        breed: 'French Bulldog',
-        gender: 'Female',
-        age: '8 months old',
-        distance: '2.5',
-        image: 'dog4.jpeg',
-      ),
-      Animal(
-        name: 'Átila',
-        breed: 'Lhasa Apso',
-        gender: 'Male',
-        age: '12 years old',
-        distance: '2.5',
-        image: 'atila.png',
-      ),
-    ];
-
-    _animals.forEach((Animal animal) {
-      _animalTiles.add(_buildTiles(animal));
-    });
-  }
-
-  Widget _buildTiles(Animal animal) {
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (() => Navigator.push(
             context,
@@ -156,15 +96,5 @@ class _AnimalListState extends State<AnimalList> {
         ],
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        key: _listKey,
-        itemCount: _animalTiles.length,
-        itemBuilder: (context, index) {
-          return _animalTiles[index];
-        });
   }
 }

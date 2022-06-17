@@ -1,7 +1,9 @@
-import 'package:first_screen_challenge/shared/animal_list.dart';
-import 'package:first_screen_challenge/widgets/list_icons.dart';
+import 'package:first_screen_challenge/widgets/animal_list_widget.dart';
 import 'package:flutter/material.dart';
-import '../widgets/nav_drawer.dart';
+import '../data/icon_data.dart';
+import '../data/animal_data.dart';
+import '../widgets/list_icon_widget.dart';
+import '../widgets/nav_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,21 +49,22 @@ class HomePageState extends State<HomePage> {
             children: [
               Expanded(
                 flex: 1,
-                child: ListView(
-                  shrinkWrap: true,
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    ListIcon(img: 'switch.svg', category: ''),
-                    ListIcon(img: 'cao.svg', category: 'Dogs'),
-                    ListIcon(img: 'gato.svg', category: 'Cats'),
-                    ListIcon(img: 'cao.svg', category: 'Dogs'),
-                    ListIcon(img: 'papagaio.svg', category: 'Birds'),
-                  ],
+                  itemCount: category.length,
+                  itemBuilder: (context, index) {
+                    return ListIconWidget(category: category[index]);
+                  },
                 ),
               ),
               Expanded(
                 flex: 9,
-                child: AnimalList(),
+                child: ListView.builder(
+                  itemCount: animal.length,
+                  itemBuilder: (context, index) {
+                    return AnimalListWidget(animal: animal[index]);
+                  },
+                ),
               ),
             ],
           ),
