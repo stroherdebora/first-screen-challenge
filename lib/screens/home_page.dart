@@ -33,7 +33,7 @@ class HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      // drawer: NavDrawer(),
+      drawer: NavDrawer(),
       body: Container(
         padding: const EdgeInsets.only(top: 15),
         height: MediaQuery.of(context).size.height,
