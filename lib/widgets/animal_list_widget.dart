@@ -84,7 +84,6 @@ class _AnimalListWidgetState extends State<AnimalListWidget> {
                                   Icons.location_on,
                                   color: Colors.red,
                                   size: 24.0,
-                                  semanticLabel: '${widget.animal.distance}',
                                 ),
                                 Text('${widget.animal.distance} kms away'),
                               ],

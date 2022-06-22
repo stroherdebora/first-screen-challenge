@@ -76,27 +76,6 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            // SliverList(
-            // delegate: SliverChildBuilderDelegate(
-            // childCount: category.length,
-            // (context, index) {
-            // return Container(
-            // child: Row(
-            // children: [
-            // ListIconWidget(category: category[index]),
-            // ],
-            // ));
-            // },
-            // ),
-            // ),
-            // SliverList(
-            // delegate: SliverChildBuilderDelegate(
-            // childCount: animal.length,
-            // (context, index) {
-            // return AnimalListWidget(animal: animal[index]);
-            // },
-            // ),
-            // ),
           ],
         ),
       ),

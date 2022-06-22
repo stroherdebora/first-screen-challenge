@@ -12,14 +12,13 @@ class ListIconWidget extends StatefulWidget {
 
 class _ListIconWidgetState extends State<ListIconWidget> {
   bool _isPressed = false;
-  bool hasName = true;
   String hasImageIcon = 'switch.svg';
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   category.where((id) => id == id);
-  // }
+  @override
+  void initState() {
+    super.initState();
+    // category.where((id) => id == id);
+  }
 
   @override
   Widget build(BuildContext context) {
