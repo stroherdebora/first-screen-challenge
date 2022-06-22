@@ -12,13 +12,13 @@ class ListIconWidget extends StatefulWidget {
 
 class _ListIconWidgetState extends State<ListIconWidget> {
   bool _isPressed = false;
-  bool hasName = true;
+  String hasImageIcon = 'switch.svg';
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   category.where((id) => id == id);
-  // }
+  @override
+  void initState() {
+    super.initState();
+    // category.where((id) => id == id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,27 +36,38 @@ class _ListIconWidgetState extends State<ListIconWidget> {
               Radius.circular(25.0),
             ),
           ),
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SvgPicture.asset(
-                  "images/${widget.category.imageIcon}",
-                  width: 35,
-                  color: _isPressed ? Colors.white : Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  "${widget.category.name}",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SvgPicture.asset(
+                    "images/${widget.category.imageIcon}",
+                    width: 35,
                     color: _isPressed ? Colors.white : Colors.grey,
                   ),
                 ),
-              )
-            ],
+                hasImageIcon == "${widget.category.imageIcon}"
+                    ? Text(
+                        "${widget.category.name}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: _isPressed ? Colors.white : Colors.grey,
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "${widget.category.name}",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: _isPressed ? Colors.white : Colors.grey,
+                          ),
+                        ),
+                      )
+              ],
+            ),
           ),
         ),
       ),

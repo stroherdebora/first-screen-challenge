@@ -33,7 +33,7 @@ class HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      // drawer: NavDrawer(),
+      drawer: NavDrawer(),
       body: Container(
         padding: const EdgeInsets.only(top: 15),
         height: MediaQuery.of(context).size.height,
@@ -76,27 +76,6 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            // SliverList(
-            // delegate: SliverChildBuilderDelegate(
-            // childCount: category.length,
-            // (context, index) {
-            // return Container(
-            // child: Row(
-            // children: [
-            // ListIconWidget(category: category[index]),
-            // ],
-            // ));
-            // },
-            // ),
-            // ),
-            // SliverList(
-            // delegate: SliverChildBuilderDelegate(
-            // childCount: animal.length,
-            // (context, index) {
-            // return AnimalListWidget(animal: animal[index]);
-            // },
-            // ),
-            // ),
           ],
         ),
       ),
