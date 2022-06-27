@@ -20,7 +20,6 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      // extendBody: true,
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.only(left: 15.0),
@@ -48,7 +47,7 @@ class _DetailsState extends State<Details> {
         children: [
           Flexible(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 10, 30, 30),
+              padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -117,7 +116,7 @@ class _DetailsState extends State<Details> {
                               ConstrainedBox(
                                 constraints: BoxConstraints(
                                   maxHeight: 250,
-                                  maxWidth: 80,
+                                  maxWidth: 70,
                                 ),
                                 child: ListView.builder(
                                   scrollDirection: Axis.vertical,
@@ -149,15 +148,18 @@ class _DetailsState extends State<Details> {
                               ConstrainedBox(
                                 constraints: BoxConstraints(
                                   maxHeight: 300,
-                                  maxWidth: 250,
+                                  maxWidth: 200,
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
-                                  child: Image.asset(
-                                    'images/${widget.animal.image}',
-                                    // height: 350.0,
-                                    // width: 300.0,
-                                    fit: BoxFit.fitHeight,
+                                  child: AspectRatio(
+                                    aspectRatio: 1,
+                                    child: Image.asset(
+                                      'images/${widget.animal.image}',
+                                      // height: 350.0,
+                                      // width: 300.0,
+                                      fit: BoxFit.fitHeight,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -193,6 +195,7 @@ class _DetailsState extends State<Details> {
         ],
       ),
       bottomNavigationBar: Material(
+        color: Colors.transparent,
         child: SizedBox(
           height: 60,
           width: double.infinity,

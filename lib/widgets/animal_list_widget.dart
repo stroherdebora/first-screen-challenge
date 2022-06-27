@@ -38,7 +38,7 @@ class _AnimalListWidgetState extends State<AnimalListWidget> {
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -96,7 +96,7 @@ class _AnimalListWidgetState extends State<AnimalListWidget> {
                         ),
                       ],
                     ),
-                    // Spacer(),
+                    Spacer(),
                     Heart(),
                   ],
                 ),
