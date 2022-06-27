@@ -7,6 +7,7 @@ List<Animal> animal = [
     gender: 'Female',
     age: '8 months old',
     distance: '2.5',
+    category: '1',
     image: 'golden1.png',
   ),
   Animal(
@@ -15,6 +16,7 @@ List<Animal> animal = [
     gender: 'Male',
     age: '1.5 years old',
     distance: '1',
+    category: '2',
     image: 'dog2.jpg',
   ),
   Animal(
@@ -23,6 +25,7 @@ List<Animal> animal = [
     gender: 'Male',
     age: '3 years old',
     distance: '5',
+    category: '3',
     image: 'cat1.jpg',
   ),
   Animal(
@@ -31,6 +34,7 @@ List<Animal> animal = [
     gender: 'Male',
     age: '1 years old',
     distance: '3',
+    category: '4',
     image: 'dog3.jpg',
   ),
   Animal(
@@ -39,6 +43,7 @@ List<Animal> animal = [
     gender: 'Male',
     age: '1 years old',
     distance: '1.5',
+    category: '5',
     image: 'ring-neck.jpg',
   ),
   Animal(
@@ -47,6 +52,7 @@ List<Animal> animal = [
     gender: 'Male',
     age: '1 years old',
     distance: '2.5',
+    category: '6',
     image: 'arara.jpeg',
   ),
   Animal(
@@ -55,6 +61,7 @@ List<Animal> animal = [
     gender: 'Female',
     age: '8 months old',
     distance: '2.5',
+    category: '7',
     image: 'dog4.jpeg',
   ),
   Animal(
@@ -63,6 +70,7 @@ List<Animal> animal = [
     gender: 'Male',
     age: '12 years old',
     distance: '2.5',
+    category: '8',
     image: 'atila.png',
   ),
 ];

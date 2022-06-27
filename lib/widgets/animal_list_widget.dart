@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../models/animal.dart';
@@ -36,7 +38,7 @@ class _AnimalListWidgetState extends State<AnimalListWidget> {
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -65,7 +67,7 @@ class _AnimalListWidgetState extends State<AnimalListWidget> {
                             Text(
                               '${widget.animal.name}',
                               style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize: 25,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
@@ -76,7 +78,9 @@ class _AnimalListWidgetState extends State<AnimalListWidget> {
                             ),
                             SizedBox(height: 2),
                             Text(
-                                '${widget.animal.gender}, ${widget.animal.age}'),
+                              '${widget.animal.gender}, ${widget.animal.age}',
+                              style: TextStyle(fontSize: 10),
+                            ),
                             SizedBox(height: 16),
                             Row(
                               children: [

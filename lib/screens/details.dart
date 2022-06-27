@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:first_screen_challenge/data/animal_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
@@ -18,8 +19,12 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        leading: BackButton(color: Colors.grey),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 15.0),
+          child: BackButton(color: Colors.grey),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
@@ -40,148 +45,157 @@ class _DetailsState extends State<Details> {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      textAlign: TextAlign.end,
-                      '${widget.animal.name}',
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                    Spacer(),
-                    RotationTransition(
-                      turns: AlwaysStoppedAnimation(220 / 360),
-                      child: Icon(
-                        Icons.female_sharp,
-                        color: Colors.grey,
-                        size: 50,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '${widget.animal.breed}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Spacer(),
-                    Text(
-                      '${widget.animal.age}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 5),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.red,
-                      size: 24.0,
-                    ),
-                    Text(
-                      '${widget.animal.distance} kms away',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'images/dog11.jpg',
-                            height: 50.0,
-                            width: 50.0,
-                            fit: BoxFit.fitHeight,
-                          ),
+                        Text(
+                          textAlign: TextAlign.end,
+                          '${widget.animal.name}',
+                          style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
                         ),
-                        SizedBox(height: 15),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'images/dog1.jpg',
-                            height: 50.0,
-                            width: 50.0,
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        SizedBox(height: 15),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'images/dog1.jpg',
-                            height: 50.0,
-                            width: 50.0,
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        SizedBox(height: 15),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'images/dog1.jpg',
-                            height: 50.0,
-                            width: 50.0,
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        SizedBox(height: 15),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'images/dog1.jpg',
-                            height: 50.0,
-                            width: 50.0,
-                            fit: BoxFit.fitHeight,
+                        Spacer(),
+                        RotationTransition(
+                          turns: AlwaysStoppedAnimation(220 / 360),
+                          child: Icon(
+                            Icons.female_sharp,
+                            color: Colors.grey,
+                            size: 50,
                           ),
                         ),
                       ],
                     ),
-                    Column(
+                    Row(
                       children: [
-                        Image.asset(
-                          'images/golden1.png',
-                          height: 350.0,
-                          width: 350.0,
+                        Text(
+                          '${widget.animal.breed}',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          '${widget.animal.age}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on,
+                          color: Colors.red,
+                          size: 24.0,
+                        ),
+                        Text(
+                          '${widget.animal.distance} kms away',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    // SizedBox(height: 50),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  maxHeight: 250,
+                                  maxWidth: 70,
+                                ),
+                                child: ListView.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: animal.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Image.asset(
+                                          'images/${widget.animal.image}',
+                                          height: 50.0,
+                                          width: 50.0,
+                                          fit: BoxFit.fitHeight,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(),
+                        SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  maxHeight: 300,
+                                  maxWidth: 200,
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: AspectRatio(
+                                    aspectRatio: 1,
+                                    child: Image.asset(
+                                      'images/${widget.animal.image}',
+                                      // height: 350.0,
+                                      // width: 300.0,
+                                      fit: BoxFit.fitHeight,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'About',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 30),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            lorem(paragraphs: 1, words: 50),
+                            style:
+                                TextStyle(color: Colors.grey[600], height: 1.4),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-                Text(
-                  'About',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
-                SizedBox(height: 15),
-                Text(
-                  lorem(paragraphs: 1, words: 60),
-                  style: TextStyle(color: Colors.grey[600], height: 1.4),
-                ),
-              ],
+              ),
             ),
           ),
         ],
       ),
       bottomNavigationBar: Material(
+        color: Colors.transparent,
         child: SizedBox(
           height: 60,
           width: double.infinity,

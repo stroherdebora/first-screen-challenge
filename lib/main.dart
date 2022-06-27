@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 import 'screens/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const PetApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class PetApp extends StatelessWidget {
+  const PetApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      // theme: ThemeData(),
       home: HomePage(),
     );
   }
